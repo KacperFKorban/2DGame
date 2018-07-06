@@ -6,5 +6,7 @@ class Settings:
         self.screenHeight = 600
         self.runningFlag = True
         self.chunkSize = 50
-        self.xChunks = screenWidth / chunkSize
-        self.yChunks = screenHeight / chunkSize
+        self.xChunks = self.screenWidth / self.chunkSize
+        self.yChunks = self.screenHeight / self.chunkSize
+        self.xMovement = 0
+        self.yMovement = 0
