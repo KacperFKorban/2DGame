@@ -1,10 +1,10 @@
 import player
 import pygame
 
-def actionListener(pl):
+def actionListener(pl, st):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-          runningFlag = False
+          st.runningFlag = False
         elif event.type != pygame.NOEVENT:
             actionActivist(event, pl)
 
