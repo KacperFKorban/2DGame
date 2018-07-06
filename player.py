@@ -5,12 +5,12 @@ class Player:
         self.x = 0
         self.y = 0
 
-def actionListener(Player player):
-    pygame.event.Event in_put = pygame.event.pygame.event.poll
+def actionListener(player):
+    in_put = pygame.event.pygame.event.poll
     if in_put.type != pygame.NOEVENT:
         action(in_put, player)
 
-def actionActivist(pygame.event.Event event, Player player):
+def actionActivist(event, player):
     if event.type == KEYDOWN:
         if event.key == K_LEFT:
             goLeft(player)
@@ -21,14 +21,14 @@ def actionActivist(pygame.event.Event event, Player player):
         elif event.key == K_DOWN:
             goDown(player)
 
-def goLeft(Player player):
+def goLeft(player):
     pass
 
-def goRight(Player player):
+def goRight(player):
     pass
 
-def goUp(Player player):
+def goUp(player):
     pass
 
-def goDown(Player player):
+def goDown(player):
     pass
