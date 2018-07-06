@@ -16,9 +16,9 @@ def launchGame():
     pygame.display.flip()
 
     while st.runningFlag:
-        actionListener(pl, st)
+        actionListener(pl, st, mapa)
         mapa.update(st, screen)
-        pl.update(st, screen)
+        #pl.update(st, screen)
         pygame.display.update()
 
 launchGame()
