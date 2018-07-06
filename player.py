@@ -1,4 +1,5 @@
 import pygame
+import animations
 
 class Player:
     def __init__(self, st):
@@ -25,17 +26,12 @@ class Player:
 
     def update(self, st, screen):
         if self.xIncrement > 0 and self.x + self.xIncrement < st.screenX:
-            animateHorizontally(self, st, right)
+            animations.animateHorizontally(self, st, self.right, screen)
         elif self.xIncrement < 0 and self.x + self.xIncrement > 0:
-            animateHorizontally(self, st, left)
+            animations.animateHorizontally(self, st, self.left, screen)
         elif self.yIncrement > 0 and self.y + self.yIncrement < st.screenY:
-            animateVertically(self, st, down)
+            animations.animateVertically(self, st, self.down, screen)
         elif self.yIncrement < 0 and self.y + self.yIncrement > 0:
-            animateVertically(self, st, up)
-<<<<<<< HEAD
-            
-        screen.blit(down[0], [self.x, self.y])
-=======
+            animations.animateVertically(self, st, self.up, screen)
 
         screen.blit(self.down[0], [self.x, self.y])
->>>>>>> 897f21717b3acf736d06f3c7a00e4ef166319c99

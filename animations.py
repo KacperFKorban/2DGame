@@ -1,6 +1,6 @@
 import pygame
 
-def animateVertically(pl, st, tab):
+def animateVertically(pl, st, tab, screen):
     direction = int(pl.xIncrement/50)
     distance = pl.xIncrement
     while pl.xIncrement != 0:
@@ -8,7 +8,7 @@ def animateVertically(pl, st, tab):
         pl.xIncrement -= direction
         pl.x += direction
 
-def animateHorizontally(pl, st, tab):
+def animateHorizontally(pl, st, tab, screen):
     direction = int(pl.yIncrement/50)
     distance = pl.yIncrement
     while pl.xIncrement != 0:
