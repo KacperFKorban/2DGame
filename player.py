@@ -9,10 +9,12 @@ class Player:
 
         down = [pygame.image.load('./Images/Sprite_scaled/front1.png'),
         pygame.image.load('./Images/Sprite_scaled/front2.png'),
+        pygame.image.load('./Images/Sprite_scaled/front1.png'),
         pygame.image.load('./Images/Sprite_scaled/front3.png')]
 
         up = [pygame.image.load('./Images/Sprite_scaled/back1.png'),
         pygame.image.load('./Images/Sprite_scaled/back2.png'),
+        pygame.image.load('./Images/Sprite_scaled/back1.png'),
         pygame.image.load('./Images/Sprite_scaled/back3.png')]
 
         left = [pygame.image.load('./Images/Sprite_scaled/left1.png'),
@@ -31,4 +33,4 @@ class Player:
         elif self.yIncrement < 0 and self.y + self.yIncrement > 0:
             animateVertically(self, st, up)
             
-        screen.blit(front1, [self.x, self.y])
+        screen.blit(down[0], [self.x, self.y])
