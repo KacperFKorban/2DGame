@@ -16,20 +16,20 @@ class Map:
         self.yChunks = self.ySize / st.chunkSize
 
     def update(self, st, screen):
-        if isValid(self.x, self.y, self.xIncrement, self.yIncrement, st):
+        if isValid(self.x, self.y, self.xIncrement, self.yIncrement, self.xSize, self.ySize, st):
             self.x += self.xIncrement
             self.y += self.yIncrement
-        graphicRect = (self.x, self.y, st.screenX, st.screenY)
+        graphicRect = (self.x, self.y, self.x+st.screenX, self.y+st.screenY)
         screenRect = (0, 0, st.screenX, st.screenY)
         screen.blit(self.graphic, screenRect, graphicRect)
 
-def isValid(x, y, xi, yi, st):
+def isValid(x, y, xi, yi, xSize, ySize, st):
     if x+xi < 0:
         return False
-    if x+xi > st.screenX:
+    if x+xi+st.screenX > xSize:
         return False
     if y+yi < 0:
         return False
-    if y+yi > st.screenY:
+    if y+yi+st.screenY > ySize:
         return False
     return True
