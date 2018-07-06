@@ -10,3 +10,5 @@ class Settings:
         self.yChunks = self.screenHeight / self.chunkSize
         self.xMovement = 0
         self.yMovement = 0
+        self.animateHorizontalLength = 12
+        self.animateVerticalLength = 7
