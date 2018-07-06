@@ -21,9 +21,7 @@ class Player:
         right = [pygame.image.load('./Images/Sprite_scaled/right1.png'),
         pygame.image.load('./Images/Sprite_scaled/right2.png')]
 
-        screen.blit(front1, [self.x, self.y])
-        
-    def update(self, st):
+    def update(self, st, screen):
         if self.xIncrement > 0 and self.x + self.xIncrement < st.screenWidth:
             animateHorizontally(self, st, right)
         elif self.xIncrement < 0 and self.x + self.xIncrement > 0:
@@ -32,27 +30,5 @@ class Player:
             animateVertically(self, st, down)
         elif self.yIncrement < 0 and self.y + self.yIncrement > 0:
             animateVertically(self, st, up)
-
-def goLeft(pl, st):
-    pl.xIncrement -= st.chunkSize
-
-def goRight(pl, st):
-    pl.xIncrement += st.chunkSize
-
-def goUp(pl, st):
-    pl.yIncrement -= st.chunkSize
-
-def goDown(pl, st):
-    pl.yIncrement += st.chunkSize
-
-def standLeft(pl, st):
-    pl.xIncrement += st.chunkSize
-
-def standRight(pl, st):
-    pl.xIncrement -= st.chunkSize
-
-def standUp(pl, st):
-    pl.yIncrement += st.chunkSize
-
-def standDown(pl, st):
-    pl.yIncrement -= st.chunkSize
+            
+        screen.blit(front1, [self.x, self.y])

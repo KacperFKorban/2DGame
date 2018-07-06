@@ -27,3 +27,27 @@ def actionActivist(event, pl, st):
             player.standUp(pl, st)
         elif event.key == pygame.K_DOWN:
             player.standDown(pl, st)
+
+def goLeft(pl, st):
+    pl.xIncrement -= st.chunkSize
+
+def goRight(pl, st):
+    pl.xIncrement += st.chunkSize
+
+def goUp(pl, st):
+    pl.yIncrement -= st.chunkSize
+
+def goDown(pl, st):
+    pl.yIncrement += st.chunkSize
+
+def standLeft(pl, st):
+    pl.xIncrement += st.chunkSize
+
+def standRight(pl, st):
+    pl.xIncrement -= st.chunkSize
+
+def standUp(pl, st):
+    pl.yIncrement += st.chunkSize
+
+def standDown(pl, st):
+    pl.yIncrement -= st.chunkSize

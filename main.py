@@ -18,7 +18,7 @@ def launchGame():
     while st.runningFlag:
         actionListener(pl, st)
         mapa.update(st, screen)
-        #pl.update(st, screen)
+        pl.update(st, screen)
         pygame.display.update()
 
 launchGame()
