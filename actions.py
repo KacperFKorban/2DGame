@@ -1,53 +1,61 @@
 import player
 import pygame
 
-def actionListener(pl, st):
+def actionListener(pl, st, mapa):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
           st.runningFlag = False
         elif event.type != pygame.NOEVENT:
-            actionActivist(event, pl, st)
+            actionActivist(event, pl, st, mapa)
 
-def actionActivist(event, pl, st):
+def actionActivist(event, pl, st, mapa):
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
-            player.goLeft(pl, st)
+            goLeft(pl, st, mapa)
         elif event.key == pygame.K_RIGHT:
-            player.goRight(pl, st)
+            goRight(pl, st, mapa)
         elif event.key == pygame.K_UP:
-            player.goUp(pl, st)
+            goUp(pl, st, mapa)
         elif event.key == pygame.K_DOWN:
-            player.goDown(pl, st)
+            goDown(pl, st, mapa)
     elif event.type == pygame.KEYUP:
         if event.key == pygame.K_LEFT:
-            player.standLeft(pl, st)
+            standLeft(pl, st, mapa)
         elif event.key == pygame.K_RIGHT:
-            player.standRight(pl, st)
+            standRight(pl, st, mapa)
         elif event.key == pygame.K_UP:
-            player.standUp(pl, st)
+            standUp(pl, st, mapa)
         elif event.key == pygame.K_DOWN:
-            player.standDown(pl, st)
+            standDown(pl, st, mapa)
 
-def goLeft(pl, st):
+def goLeft(pl, st, mapa):
     pl.xIncrement -= st.chunkSize
+    mapa.xIncrement += st.chunkSize
 
-def goRight(pl, st):
+def goRight(pl, st, mapa):
     pl.xIncrement += st.chunkSize
+    mapa.xIncrement -= st.chunkSize
 
-def goUp(pl, st):
+def goUp(pl, st, mapa):
     pl.yIncrement -= st.chunkSize
+    mapa.yIncrement += st.chunkSize
 
-def goDown(pl, st):
+def goDown(pl, st, mapa):
     pl.yIncrement += st.chunkSize
+    mapa.yIncrement -= st.chunkSize
 
-def standLeft(pl, st):
+def standLeft(pl, st, mapa):
     pl.xIncrement += st.chunkSize
+    mapa.xIncrement -= st.chunkSize
 
-def standRight(pl, st):
+def standRight(pl, st, mapa):
     pl.xIncrement -= st.chunkSize
+    mapa.xIncrement += st.chunkSize
 
-def standUp(pl, st):
+def standUp(pl, st, mapa):
     pl.yIncrement += st.chunkSize
+    mapa.yIncrement -= st.chunkSize
 
-def standDown(pl, st):
+def standDown(pl, st, mapa):
     pl.yIncrement -= st.chunkSize
+    mapa.yIncrement += st.chunkSize
