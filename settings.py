@@ -1,4 +1,4 @@
 class Settings:
     def __init__(self):
         self.screenWidth = 1200
-        self.screenHight = 600
+        self.screenHeight = 600

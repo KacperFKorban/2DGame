@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-import settings
+from settings import Settings
 
 def launchGame():
     pygame.init()
@@ -10,7 +10,9 @@ def launchGame():
     screen.fill((255,255,255))
     pygame.display.flip()
     runningFlag = True
-    while running:
+    while runningFlag:
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           runningFlag = False
+
+launchGame()
