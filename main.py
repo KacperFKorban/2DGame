@@ -15,8 +15,7 @@ def launchGame():
     screen.fill(back.color)
     pygame.display.flip()
 
-    runningFlag = True
-    while runningFlag:
-      actionListener(pl)
+    while st.runningFlag:
+      actionListener(pl, st)
 
 launchGame()
