@@ -30,5 +30,5 @@ def goRight(Player player):
 def goUp(Player player):
     pass
 
-def goDOwn(Player player):
+def goDown(Player player):
     pass
