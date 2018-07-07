@@ -2,7 +2,8 @@ import pygame
 
 class Map:
     def __init__(self, st):
-        self.graphic = pygame.image.load("Images/Maps/tiledbackground.png")
+        #self.graphic = pygame.image.load("Images/Maps/tiledbackground.png")
+        self.graphic = pygame.image.load("Images/Maps/temp1.jpg")
         self.rect = self.graphic.get_rect()
         self.size = self.graphic.get_size()
         self.xSize = self.size[0]
