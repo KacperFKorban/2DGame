@@ -1,4 +1,5 @@
 import pygame
+import time
 from pygame.locals import *
 from settings import Settings
 from player import Player
@@ -20,5 +21,6 @@ def launchGame():
         mapa.update(st, screen)
         pl.update(st, screen)
         pygame.display.update()
+        time.sleep(0.05)
 
 launchGame()

@@ -5,8 +5,6 @@ class Player:
     def __init__(self, st):
         self.x = st.xChunks / 2 * st.chunkSize
         self.y = st.yChunks / 2 * st.chunkSize
-        self.xIncrement = 0
-        self.yIncrement = 0
         self.down = [
                         pygame.image.load('./Images/Sprite_scaled/front1.png'),
                         pygame.image.load('./Images/Sprite_scaled/front2.png'),
@@ -30,13 +28,13 @@ class Player:
         self.graphic = self.down[0]
 
     def update(self, st, screen):
-        if self.xIncrement > 0 and self.x + self.xIncrement < st.screenX:
+        if st.xIncrement > 0 and self.x + st.xIncrement < st.screenX:
             animations.animateHorizontally(self, st, self.right, screen)
-        elif self.xIncrement < 0 and self.x + self.xIncrement > 0:
+        elif st.xIncrement < 0 and self.x + st.xIncrement > 0:
             animations.animateHorizontally(self, st, self.left, screen)
-        elif self.yIncrement > 0 and self.y + self.yIncrement < st.screenY:
+        elif st.yIncrement > 0 and self.y + st.yIncrement < st.screenY:
             animations.animateVertically(self, st, self.down, screen)
-        elif self.yIncrement < 0 and self.y + self.yIncrement > 0:
+        elif st.yIncrement < 0 and self.y + st.yIncrement > 0:
             animations.animateVertically(self, st, self.up, screen)
 
         screen.blit(self.down[0], [self.x, self.y])

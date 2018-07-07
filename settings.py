@@ -11,3 +11,5 @@ class Settings:
         self.xMovement = 0
         self.yMovement = 0
         self.animateWalkLength = 7
+        self.xIncrement = 0
+        self.yIncrement = 0
