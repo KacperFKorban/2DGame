@@ -29,25 +29,25 @@ def actionActivist(event, pl, st, mapa):
             standDown(pl, st, mapa)
 
 def goLeft(pl, st, mapa):
-    st.xIncrement -= st.chunkSize
+    st.xMovement -= st.chunkSize
 
 def goRight(pl, st, mapa):
-    st.xIncrement += st.chunkSize
+    st.xMovement += st.chunkSize
 
 def goUp(pl, st, mapa):
-    st.yIncrement -= st.chunkSize
+    st.yMovement -= st.chunkSize
 
 def goDown(pl, st, mapa):
-    st.yIncrement += st.chunkSize
+    st.yMovement += st.chunkSize
 
 def standLeft(pl, st, mapa):
-    st.xIncrement += st.chunkSize
+    st.xMovement += st.chunkSize
 
 def standRight(pl, st, mapa):
-    st.xIncrement -= st.chunkSize
+    st.xMovement -= st.chunkSize
 
 def standUp(pl, st, mapa):
-    st.yIncrement += st.chunkSize
+    st.yMovement += st.chunkSize
 
 def standDown(pl, st, mapa):
-    st.yIncrement -= st.chunkSize
+    st.yMovement -= st.chunkSize

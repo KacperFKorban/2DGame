@@ -12,7 +12,7 @@ def launchGame():
     mapa = Map(st)
     pl = Player(st)
     screen = pygame.display.set_mode((st.screenX, st.screenY))
-    pygame.display.set_caption('2DGame')
+    pygame.display.set_caption("2DGame")
     screen.fill(mapa.color)
     pygame.display.flip()
 
@@ -21,6 +21,6 @@ def launchGame():
         mapa.update(st, screen)
         pl.update(st, screen)
         pygame.display.update()
-        time.sleep(0.05)
+        time.sleep(0.02)
 
 launchGame()

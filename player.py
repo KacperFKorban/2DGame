@@ -25,16 +25,14 @@ class Player:
                             pygame.image.load('./Images/Sprite_scaled/right1.png'),
                             pygame.image.load('./Images/Sprite_scaled/right2.png')
                         ]
-        self.graphic = self.down[0]
+        self.graphicIterator = 0
+        self.graphicTab = self.down
+
+    def animateHorizontally(self, st, tab, screen):
+        pass
+
+    def animateVertically(self, st, tab, screen):
+        pass
 
     def update(self, st, screen):
-        if st.xIncrement > 0 and self.x + st.xIncrement < st.screenX:
-            animations.animateHorizontally(self, st, self.right, screen)
-        elif st.xIncrement < 0 and self.x + st.xIncrement > 0:
-            animations.animateHorizontally(self, st, self.left, screen)
-        elif st.yIncrement > 0 and self.y + st.yIncrement < st.screenY:
-            animations.animateVertically(self, st, self.down, screen)
-        elif st.yIncrement < 0 and self.y + st.yIncrement > 0:
-            animations.animateVertically(self, st, self.up, screen)
-
-        screen.blit(self.down[0], [self.x, self.y])
+        screen.blit(self.down[0], (self.x, self.y))
