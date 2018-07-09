@@ -1,10 +1,11 @@
 import pygame
-import animations
 
 class Player:
     def __init__(self, st):
         self.x = st.xChunks / 2 * st.chunkSize
         self.y = st.yChunks / 2 * st.chunkSize
+        self.walkingX = 0
+        self.walkingY = 0
         self.down = [
                         pygame.image.load('./Images/Sprite_scaled/front1.png'),
                         pygame.image.load('./Images/Sprite_scaled/front2.png'),
@@ -25,14 +26,41 @@ class Player:
                             pygame.image.load('./Images/Sprite_scaled/right1.png'),
                             pygame.image.load('./Images/Sprite_scaled/right2.png')
                         ]
-        self.graphicIterator = 0
+        self.graphicIterator = -1
         self.graphicTab = self.down
 
-    def animateHorizontally(self, st, tab, screen):
-        pass
+    def animateHorizontally(self, st, screen):
+        if self.graphicIterator == -1:
+            if self.walkingX > 0:
+                self.graphicTab = self.right
+            else:
+                self.graphicTab = self.left
+            self.graphicIterator = 0
+        else:
+            self.graphicIterator += 1
+            self.graphicIterator %= len(self.graphicTab)
+        self.walkingX = 0
 
-    def animateVertically(self, st, tab, screen):
-        pass
+    def animateVertically(self, st, screen):
+        if self.graphicIterator == -1:
+            if self.walkingY > 0:
+                self.graphicTab = self.down
+            else:
+                self.graphicTab = self.up
+            self.graphicIterator = 0
+        else:
+            self.graphicIterator += 1
+            self.graphicIterator %= len(self.graphicTab)
+        self.walkingY = 0
 
     def update(self, st, screen):
-        screen.blit(self.down[0], (self.x, self.y))
+        if self.walkingY != 0:
+            self.animateVertically(st, screen)
+        elif self.walkingX != 0:
+            self.animateHorizontally(st, screen)
+        else:
+            self.graphicIterator = -1
+        if self.graphicIterator == -1:
+            screen.blit(self.graphicTab[0], (self.x, self.y))
+        else:
+            screen.blit(self.graphicTab[self.graphicIterator], (self.x, self.y))

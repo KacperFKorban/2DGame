@@ -22,12 +22,14 @@ class Map:
                 st.xToGo = st.xMovement
             if st.xToGo != 0:
                 self.x += st.xStep * sgn(st.xToGo)
+                pl.walkingX = sgn(st.xToGo)
                 st.xToGo -= st.xStep * sgn(st.xToGo)
         if st.yToGo != 0 or self.isYValid(st, pl):
             if st.yToGo == 0:
                 st.yToGo = st.yMovement
             if st.yToGo != 0:
                 self.y += st.yStep * sgn(st.yToGo)
+                pl.walkingY = sgn(st.yToGo)
                 st.yToGo -= st.yStep * sgn(st.yToGo)
         graphicRect = (self.x, self.y, self.x+st.screenX, self.y+st.screenY)
         screenRect = (0, 0, st.screenX, st.screenY)

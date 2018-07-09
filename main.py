@@ -21,6 +21,6 @@ def launchGame():
         mapa.update(st, screen, pl)
         pl.update(st, screen)
         pygame.display.update()
-        time.sleep(0.02)
+        time.sleep(0.06)
 
 launchGame()
