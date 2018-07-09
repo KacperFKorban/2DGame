@@ -6,10 +6,11 @@ from player import Player
 from background import Map
 from actions import actionListener
 
+
 def launchGame():
     pygame.init()
     st = Settings()
-    mapa = Map(st)
+    mapa = Map(st, './Images/Maps/temptilesbig.jpg', './map')
     pl = Player(st)
     screen = pygame.display.set_mode((st.screenX, st.screenY))
     pygame.display.set_caption("2DGame")
