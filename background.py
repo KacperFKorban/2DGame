@@ -3,7 +3,7 @@ from maploader import loadMap
 
 class Map:
     def __init__(self, st, mapGraphic, mapSource):
-        #self.graphic = pygame.image.load("Images/Maps/temp1.png")
+        #self.graphic = pygame.image.load("Images/Maps/temp1.jpg")
         self.graphic = pygame.image.load(mapGraphic)
         self.rect = self.graphic.get_rect()
         self.size = self.graphic.get_size()
