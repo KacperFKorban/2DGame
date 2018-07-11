@@ -1,5 +1,3 @@
-import pygame
-
 def loadMap(mapSource):                     #mapSource is a path to a textfile
     booleanMap = []                         #initial list of lists
     with open(mapSource) as m:              

@@ -29,7 +29,7 @@ class Player:
         self.graphicIterator = -1
         self.graphicTab = self.down
 
-    def animateHorizontally(self, st, screen):
+    def animateHorizontally(self):
         if self.graphicIterator == -1:
             if self.walkingX > 0:
                 self.graphicTab = self.right
@@ -41,7 +41,7 @@ class Player:
             self.graphicIterator %= len(self.graphicTab)
         self.walkingX = 0
 
-    def animateVertically(self, st, screen):
+    def animateVertically(self):
         if self.graphicIterator == -1:
             if self.walkingY > 0:
                 self.graphicTab = self.down
@@ -55,9 +55,9 @@ class Player:
 
     def update(self, st, screen):
         if self.walkingY != 0:
-            self.animateVertically(st, screen)
+            self.animateVertically()
         elif self.walkingX != 0:
-            self.animateHorizontally(st, screen)
+            self.animateHorizontally()
         elif st.xMovement != 0 or st.yMovement != 0:
             if st.yMovement > 0:
                 self.graphicTab = self.down

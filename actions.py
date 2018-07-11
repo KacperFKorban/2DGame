@@ -1,4 +1,3 @@
-import player
 import pygame
 
 def actionListener(pl, st, mapa):

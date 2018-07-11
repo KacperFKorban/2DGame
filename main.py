@@ -1,6 +1,5 @@
 import pygame
 import time
-from pygame.locals import *
 from settings import Settings
 from player import Player
 from background import Map
