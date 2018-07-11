@@ -58,6 +58,15 @@ class Player:
             self.animateVertically(st, screen)
         elif self.walkingX != 0:
             self.animateHorizontally(st, screen)
+        elif st.xMovement != 0 or st.yMovement != 0:
+            if st.yMovement > 0:
+                self.graphicTab = self.down
+            elif st.yMovement < 0:
+                self.graphicTab = self.up
+            elif st.xMovement > 0:
+                self.graphicTab = self.right
+            else:
+                self.graphicTab = self.left
         else:
             self.graphicIterator = -1
         if self.graphicIterator == -1:
