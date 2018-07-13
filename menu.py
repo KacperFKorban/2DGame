@@ -22,5 +22,6 @@ class Menu:
                     st.menuFlag = False
             elif event.key == pygame.K_DOWN:
                 self.optionHighlighted += 1
+
             elif event.key == pygame.K_UP:
                 self.optionHighlighted -= 1
