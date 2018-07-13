@@ -4,6 +4,7 @@ from settings import Settings
 from player import Player
 from background import Map
 from actions import actionListener
+from menu import Menu
 
 
 def launchGame():
@@ -11,15 +12,20 @@ def launchGame():
     st = Settings()
     mapa = Map(st, './Images/Maps/temptilesbig.jpg', './map')
     pl = Player(st)
+    menu = Menu()
     screen = pygame.display.set_mode((st.screenX, st.screenY))
     pygame.display.set_caption("2DGame")
 
     while st.runningFlag:
-        screen.fill(mapa.color)
-        actionListener(pl, st, mapa)
-        mapa.update(st, screen, pl)
-        pl.update(st, screen)
-        pygame.display.update()
-        time.sleep(0.06)
+        if st.menuFlag:
+            menu.update(screen)
+            menu.actionListener(st)
+        else:
+            screen.fill(mapa.color)
+            actionListener(pl, st, mapa)
+            mapa.update(st, screen, pl)
+            pl.update(st, screen)
+            pygame.display.update()
+            time.sleep(0.06)
 
 launchGame()

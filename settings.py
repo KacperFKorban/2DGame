@@ -3,6 +3,7 @@ class Settings:
         self.screenX = 850
         self.screenY = 650
         self.runningFlag = True
+        self.menuFlag = True
         self.chunkSize = 50
         self.xChunks = self.screenX / self.chunkSize
         self.yChunks = self.screenY / self.chunkSize

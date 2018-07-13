@@ -3,7 +3,7 @@ import pygame
 def actionListener(pl, st, mapa):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-          st.runningFlag = False
+            st.runningFlag = False
         elif event.type != pygame.NOEVENT:
             actionActivist(event, pl, st, mapa)
 
