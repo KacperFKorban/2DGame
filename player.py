@@ -58,7 +58,7 @@ class Player:
             self.animateVertically()
         elif self.walkingX != 0:
             self.animateHorizontally()
-        elif st.xMovement != 0 and st.yMovement != 0:
+        elif st.xMovement != 0 or st.yMovement != 0:
             if st.yMovement > 0:
                 self.graphicTab = self.down
             elif st.yMovement < 0:
@@ -67,10 +67,10 @@ class Player:
                 self.graphicTab = self.right
             else:
                 self.graphicTab = self.left
-            self.graphicIterator = 0
+            self.graphicIterator = -1
         else:
             self.graphicIterator = -1
         if self.graphicIterator == -1:
             screen.blit(self.graphicTab[0], (self.x, self.y))
         else:
-            screen.blit(self.graphicTab[self.graphicIterator % len(self.graphicTab)], (self.x, self.y))
+            screen.blit(self.graphicTab[self.graphicIterator], (self.x, self.y))
