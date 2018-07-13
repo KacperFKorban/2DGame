@@ -4,7 +4,7 @@ def actionListener(pl, st, mapa):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             st.runningFlag = False
-        elif event.type != pygame.NOEVENT:
+        else:
             actionActivist(event, pl, st, mapa)
 
 def actionActivist(event, pl, st, mapa):
@@ -17,6 +17,8 @@ def actionActivist(event, pl, st, mapa):
             goUp(pl, st, mapa)
         elif event.key == pygame.K_DOWN:
             goDown(pl, st, mapa)
+        elif event.key == pygame.K_ESCAPE:
+            st.menuFlag = True
     elif event.type == pygame.KEYUP:
         if event.key == pygame.K_LEFT:
             standLeft(pl, st, mapa)

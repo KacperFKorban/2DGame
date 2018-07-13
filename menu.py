@@ -15,16 +15,19 @@ class Menu:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 st.runningFlag = False
-            elif event.type != pygame.NOEVENT:
+            else:
                 self.actionActivist(event, st)
 
     def actionActivist(self, event, st):
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE and st.startedFlag:
+                st.menuFlag = False
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RETURN:
                 if self.optionHighlighted == 0:
                     st.menuFlag = False
+                    st.startedFlag = True
             elif event.key == pygame.K_DOWN:
                 self.optionHighlighted += 1
-
             elif event.key == pygame.K_UP:
                 self.optionHighlighted -= 1

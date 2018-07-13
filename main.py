@@ -18,8 +18,9 @@ def launchGame():
 
     while st.runningFlag:
         if st.menuFlag:
-            menu.update(screen)
             menu.actionListener(st)
+            menu.update(screen)
+            pygame.display.update()
         else:
             screen.fill(mapa.color)
             actionListener(pl, st, mapa)
