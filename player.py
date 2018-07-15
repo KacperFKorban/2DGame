@@ -7,24 +7,24 @@ class Player:
         self.walkingX = 0
         self.walkingY = 0
         self.down = [
-                        pygame.image.load('./Images/Sprite_scaled/front1.png'),
-                        pygame.image.load('./Images/Sprite_scaled/front2.png'),
-                        pygame.image.load('./Images/Sprite_scaled/front1.png'),
-                        pygame.image.load('./Images/Sprite_scaled/front3.png')
+                        pygame.image.load('./images/sprite_scaled/front1.png'),
+                        pygame.image.load('./images/sprite_scaled/front2.png'),
+                        pygame.image.load('./images/sprite_scaled/front1.png'),
+                        pygame.image.load('./images/sprite_scaled/front3.png')
                     ]
         self.up =   [
-                        pygame.image.load('./Images/Sprite_scaled/back1.png'),
-                        pygame.image.load('./Images/Sprite_scaled/back2.png'),
-                        pygame.image.load('./Images/Sprite_scaled/back1.png'),
-                        pygame.image.load('./Images/Sprite_scaled/back3.png')
+                        pygame.image.load('./images/sprite_scaled/back1.png'),
+                        pygame.image.load('./images/sprite_scaled/back2.png'),
+                        pygame.image.load('./images/sprite_scaled/back1.png'),
+                        pygame.image.load('./images/sprite_scaled/back3.png')
                     ]
         self.left = [
-                        pygame.image.load('./Images/Sprite_scaled/left1.png'),
-                        pygame.image.load('./Images/Sprite_scaled/left2.png')
+                        pygame.image.load('./images/sprite_scaled/left1.png'),
+                        pygame.image.load('./images/sprite_scaled/left2.png')
                     ]
         self.right =    [
-                            pygame.image.load('./Images/Sprite_scaled/right1.png'),
-                            pygame.image.load('./Images/Sprite_scaled/right2.png')
+                            pygame.image.load('./images/sprite_scaled/right1.png'),
+                            pygame.image.load('./images/sprite_scaled/right2.png')
                         ]
         self.graphicIterator = -1
         self.graphicTab = self.down
