@@ -39,7 +39,7 @@ class Map:
             return False
         if self.x+st.xMovement+st.screenX > self.xSize:
             return False
-        if self.collision[int((self.y + st.yToGo + pl.y) / st.chunkSize)][int((self.x + st.xMovement + pl.x) / st.chunkSize)] == '0':
+        if self.collision[int((self.y + st.yToGo + pl.y * st.chunkSize) / st.chunkSize)][int((self.x + st.xMovement + pl.x * st.chunkSize) / st.chunkSize)] == '0':
             return False
         return True
 
@@ -48,7 +48,7 @@ class Map:
             return False
         if self.y + st.yMovement + st.screenY > self.ySize:
             return False
-        if self.collision[int((self.y + st.yMovement + pl.y) / st.chunkSize)][int((self.x + st.xToGo + pl.x) / st.chunkSize)] == '0':
+        if self.collision[int((self.y + st.yMovement + pl.y * st.chunkSize) / st.chunkSize)][int((self.x + st.xToGo + pl.x * st.chunkSize) / st.chunkSize)] == '0':
             return False
         return True
 

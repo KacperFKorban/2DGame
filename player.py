@@ -1,56 +1,60 @@
 import pygame
+from enum import Enum
 
 class Player:
     def __init__(self, st):
-        self.x = st.xChunks / 2 * st.chunkSize
-        self.y = st.yChunks / 2 * st.chunkSize
+        self.x = st.xChunks / 2
+        self.y = st.yChunks / 2
         self.walkingX = 0
         self.walkingY = 0
-        self.down = [
-                        pygame.image.load('./images/sprite_scaled/front1.png'),
-                        pygame.image.load('./images/sprite_scaled/front2.png'),
-                        pygame.image.load('./images/sprite_scaled/front1.png'),
-                        pygame.image.load('./images/sprite_scaled/front3.png')
-                    ]
-        self.up =   [
-                        pygame.image.load('./images/sprite_scaled/back1.png'),
-                        pygame.image.load('./images/sprite_scaled/back2.png'),
-                        pygame.image.load('./images/sprite_scaled/back1.png'),
-                        pygame.image.load('./images/sprite_scaled/back3.png')
-                    ]
-        self.left = [
-                        pygame.image.load('./images/sprite_scaled/left1.png'),
-                        pygame.image.load('./images/sprite_scaled/left2.png')
-                    ]
-        self.right =    [
-                            pygame.image.load('./images/sprite_scaled/right1.png'),
-                            pygame.image.load('./images/sprite_scaled/right2.png')
-                        ]
+        self.direction = Direction.down
+        self.graphics = [
+                            [
+                                pygame.image.load('./images/sprite_scaled/back1.png'),
+                                pygame.image.load('./images/sprite_scaled/back2.png'),
+                                pygame.image.load('./images/sprite_scaled/back1.png'),
+                                pygame.image.load('./images/sprite_scaled/back3.png')
+                            ],
+                            [
+                                pygame.image.load('./images/sprite_scaled/right1.png'),
+                                pygame.image.load('./images/sprite_scaled/right2.png')
+                            ],
+                            [
+                                pygame.image.load('./images/sprite_scaled/front1.png'),
+                                pygame.image.load('./images/sprite_scaled/front2.png'),
+                                pygame.image.load('./images/sprite_scaled/front1.png'),
+                                pygame.image.load('./images/sprite_scaled/front3.png')
+                            ],
+                            [
+                                pygame.image.load('./images/sprite_scaled/left1.png'),
+                                pygame.image.load('./images/sprite_scaled/left2.png')
+                            ]
+                        ]    
         self.graphicIterator = -1
-        self.graphicTab = self.down
+        self.graphicTabIterator = Direction.down
 
     def animateHorizontally(self):
         if self.walkingX > 0:
-            self.graphicTab = self.right
+            self.graphicTabIterator = Direction.right
         else:
-            self.graphicTab = self.left
+            self.graphicTabIterator = Direction.left
         if self.graphicIterator == -1:
             self.graphicIterator = 0
         else:
             self.graphicIterator += 1
-            self.graphicIterator %= len(self.graphicTab)
+            self.graphicIterator %= len(self.graphics[self.graphicTabIterator.value])
         self.walkingX = 0
 
     def animateVertically(self):
         if self.walkingY > 0:
-            self.graphicTab = self.down
+            self.graphicTabIterator = Direction.down
         else:
-            self.graphicTab = self.up
+            self.graphicTabIterator = Direction.up
         if self.graphicIterator == -1:
             self.graphicIterator = 0
         else:
             self.graphicIterator += 1
-            self.graphicIterator %= len(self.graphicTab)
+            self.graphicIterator %= len(self.graphics[self.graphicTabIterator.value])
         self.walkingY = 0
 
     def update(self, st, screen):
@@ -60,17 +64,23 @@ class Player:
             self.animateHorizontally()
         elif st.xMovement != 0 or st.yMovement != 0:
             if st.yMovement > 0:
-                self.graphicTab = self.down
+                self.graphicTabIterator = Direction.down
             elif st.yMovement < 0:
-                self.graphicTab = self.up
+                self.graphicTabIterator = Direction.up
             elif st.xMovement > 0:
-                self.graphicTab = self.right
+                self.graphicTabIterator = Direction.right
             else:
-                self.graphicTab = self.left
+                self.graphicTabIterator = Direction.left
             self.graphicIterator = -1
         else:
             self.graphicIterator = -1
         if self.graphicIterator == -1:
-            screen.blit(self.graphicTab[0], (self.x, self.y))
+            screen.blit(self.graphics[self.graphicTabIterator.value][0], (self.x * st.chunkSize, self.y * st.chunkSize))
         else:
-            screen.blit(self.graphicTab[self.graphicIterator], (self.x, self.y))
+            screen.blit(self.graphics[self.graphicTabIterator.value][self.graphicIterator], (self.x * st.chunkSize, self.y * st.chunkSize))
+
+class Direction(Enum):
+    up = 0
+    right = 1
+    down = 2
+    left = 3

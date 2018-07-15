@@ -19,6 +19,8 @@ def actionActivist(event, pl, st, mapa):
             goDown(pl, st, mapa)
         elif event.key == pygame.K_ESCAPE:
             st.menuFlag = True
+        elif event.key == pygame.K_SPACE:
+            checkInteraction(pl, npcs, st)
     elif event.type == pygame.KEYUP:
         if event.key == pygame.K_LEFT:
             standLeft(pl, st, mapa)
@@ -28,6 +30,23 @@ def actionActivist(event, pl, st, mapa):
             standUp(pl, st, mapa)
         elif event.key == pygame.K_DOWN:
             standDown(pl, st, mapa)
+
+def checkInteraction(pl, npcs, st):
+    if st.xToGo == 0 and st.yToGo == 0:
+        direction = directionToVector(pl.graphicTabIterator)
+        for npc in npcs:
+            if mapa.x / st.chunkSize + pl.x + direction[0] == npc.x and mapa.y / st.chunkSize + pl.y + direction[1] == npc.y:
+                npc.interact()
+
+def directionToVector(d):
+    if d == Direction.up:
+        return (0,-1)
+    elif d == Direction.down:
+        return (0,1)
+    elif d == Direction.right:
+        return (1,0)
+    elif d == Direction.left:
+        return (-1,0)
 
 def goLeft(pl, st, mapa):
     st.xMovement -= st.chunkSize
