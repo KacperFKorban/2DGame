@@ -40,14 +40,5 @@ class Menu:
                 text = self.font.render(self.menuTexts[iterator], True, (255, 0, 0))
             else:
                 text = self.font.render(self.menuTexts[iterator], True, (0, 255, 0))
-            screen.blit(text, (st.screenX // 2 - text.get_width(), height))
+            screen.blit(text, (st.screenX // 2 - text.get_width() // 2, height))
             height = height + 40
-
-
-#
-#    def textOff(self, text):
-#        return self.font.render(text, True, (0, 255, 0))
-#
-#    def textOn(self, text):
-#        return self.font.render(text, True, (255, 0, 0))
-#
