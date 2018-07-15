@@ -6,10 +6,12 @@ class Menu:
         self.optionHighlighted = 0
         self.font = pygame.font.Font("./fonts/SFPixelate-BoldOblique.ttf", 36)
         self.menuTexts =["New Game", "Load Game", "Settings", "Credits", "Quit"]
+        self.background = pygame.image.load("./images/maps/temp1.jpg")
         
 
     def update(self, screen, st):
         screen.fill(self.backColor)
+        screen.blit(self.background, (0,0))
         self.menuBlit(screen, st)
 
     def actionListener(self, st):
