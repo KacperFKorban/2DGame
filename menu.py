@@ -39,6 +39,6 @@ class Menu:
             if self.optionHighlighted == iterator:
                 text = self.font.render(self.menuTexts[iterator], True, (255, 0, 0))
             else:
-                text = self.font.render(self.menuTexts[iterator], True, (0, 255, 0))
+                text = self.font.render(self.menuTexts[iterator], True, (255, 150, 150))
             screen.blit(text, (st.screenX // 2 - text.get_width() // 2, height))
             height = height + 40
