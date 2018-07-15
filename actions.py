@@ -1,13 +1,14 @@
 import pygame
+from player import Direction
 
-def actionListener(pl, st, mapa):
+def actionListener(pl, st, mapa, npcs):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             st.runningFlag = False
         else:
-            actionActivist(event, pl, st, mapa)
+            actionActivist(event, pl, st, mapa, npcs)
 
-def actionActivist(event, pl, st, mapa):
+def actionActivist(event, pl, st, mapa, npcs):
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
             goLeft(pl, st, mapa)

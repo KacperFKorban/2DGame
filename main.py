@@ -13,6 +13,7 @@ def launchGame():
     mapa = Map(st, './images/maps/temptilesbig.jpg', './maps/map')
     pl = Player(st)
     menu = Menu()
+    npcs = []
     screen = pygame.display.set_mode((st.screenX, st.screenY))
     pygame.display.set_caption("2DGame")
 
@@ -23,7 +24,7 @@ def launchGame():
             pygame.display.update()
         else:
             screen.fill(mapa.color)
-            actionListener(pl, st, mapa)
+            actionListener(pl, st, mapa, npcs)
             mapa.update(st, screen, pl)
             pl.update(st, screen)
             pygame.display.update()
