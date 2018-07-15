@@ -28,9 +28,11 @@ class Menu:
                 if self.optionHighlighted == 0:
                     st.menuFlag = False
                     st.startedFlag = True
-            elif event.key == pygame.K_DOWN:
+                if self.optionHighlighted == 4:
+                    st.runningFlag = False
+            elif event.key == pygame.K_DOWN and self.optionHighlighted < len(self.menuTexts)-1:
                 self.optionHighlighted += 1
-            elif event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP and self.optionHighlighted > 0:
                 self.optionHighlighted -= 1
 
     def menuBlit(self, screen, st):
