@@ -10,7 +10,7 @@ from menu import Menu
 def launchGame():
     pygame.init()
     st = Settings()
-    mapa = Map(st, './Images/Maps/temptilesbig.jpg', './maps/map')
+    mapa = Map(st, './images/maps/temptilesbig.jpg', './maps/map')
     pl = Player(st)
     menu = Menu()
     screen = pygame.display.set_mode((st.screenX, st.screenY))
@@ -19,7 +19,7 @@ def launchGame():
     while st.runningFlag:
         if st.menuFlag:
             menu.actionListener(st)
-            menu.update(screen)
+            menu.update(screen, st)
             pygame.display.update()
         else:
             screen.fill(mapa.color)
