@@ -8,6 +8,9 @@ class Npc:
         self.graphic = pygame.image.load(graphicPath)
         self.type = typ
 
+    def update(self):
+        pass
+
     def interact(self):
         if self.type == NpcType.friendly:
             self.interactFriendly()
