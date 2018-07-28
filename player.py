@@ -1,5 +1,6 @@
 import pygame
 from enum import Enum
+from inventory import Inventory
 
 class Player:
     def __init__(self, st):
@@ -32,6 +33,7 @@ class Player:
                         ]    
         self.graphicIterator = -1
         self.graphicTabIterator = Direction.down
+        self.inventory = Inventory()
 
     def animateHorizontally(self):
         if self.walkingX > 0:

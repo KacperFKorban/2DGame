@@ -21,7 +21,9 @@ def actionActivist(event, pl, st, mapa, npcs):
         elif event.key == pygame.K_ESCAPE:
             st.menuFlag = True
         elif event.key == pygame.K_SPACE:
-            checkInteraction(pl, npcs, st)
+            checkInteraction(pl, npcs, mapa, st)
+        elif event.key == pygame.K_i:
+            st.inventoryFlag = True
     elif event.type == pygame.KEYUP:
         if event.key == pygame.K_LEFT:
             standLeft(pl, st, mapa)
@@ -32,7 +34,7 @@ def actionActivist(event, pl, st, mapa, npcs):
         elif event.key == pygame.K_DOWN:
             standDown(pl, st, mapa)
 
-def checkInteraction(pl, npcs, st):
+def checkInteraction(pl, npcs, mapa, st):
     if st.xToGo == 0 and st.yToGo == 0:
         direction = directionToVector(pl.graphicTabIterator)
         for npc in npcs:

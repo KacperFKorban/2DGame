@@ -8,8 +8,17 @@ class Npc:
         self.graphic = pygame.image.load(graphicPath)
         self.type = typ
 
-    def update(self):
-        pass
+    def update(self, mapa, screen, st):
+        if self.isInRange(mapa, st):
+            screen.blit(self.graphic, (self.x * st.chunkSize - mapa.x, self.y * st.chunkSize - mapa.y))
+
+    def isInRange(self, mapa, st):
+        x = self.x * st.chunkSize
+        y = self.y * st.chunkSize
+        if x >= mapa.x and x < mapa.x + st.screenX and y >= mapa.y and y < mapa.y + st.screenY:
+            return True
+        else:
+            return False
 
     def interact(self):
         if self.type == NpcType.friendly:
