@@ -32,7 +32,7 @@ class Npc:
         pass
 
     def interactNeutral(self):
-        pass
+        print('penis')
 
     def interactHostile(self):
         pass
